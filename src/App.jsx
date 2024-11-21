@@ -1,16 +1,20 @@
+import { useState } from 'react';
 import items from './assets/items.json';
 import Bellow from './Bellow';
 
 function App() {
+  const[lastClicked, setLastClicked] = useState("None");
   return (
-    <div className="flex justify-center items-center min-h-screen my-10">
+    <div className="flex flex-col justify-center items-center min-h-screen my-10">
+      <h1>Last clicked: {lastClicked}</h1>
       <Bellow
         data={items}
         filterKeyword=""
         isOpen={false}
         underline={true}
         showWordCount
-        onClick={(value) => console.log(value)}
+        setLastClicked={setLastClicked}
+        // onClick={(value) => console.log(value)}
       />
     </div>
   );
